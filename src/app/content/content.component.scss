@@ -1,0 +1,12 @@
+.app-content-component {
+    margin: 8px;
+    height: calc(100vh - 64px);
+
+    &__card {
+        margin-top: 16px;
+    }
+
+    &__checkbox {
+        margin-right:16px;
+    }
+}

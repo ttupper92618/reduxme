@@ -1,0 +1,80 @@
+<div class="app-content-component">
+  <mat-card class="app-content-component__card">
+      <mat-card-title>
+          Balast control...
+        </mat-card-title>
+      <mat-button-toggle-group #group="matButtonToggleGroup" [value]="bgValue">
+          <mat-button-toggle value="left">
+            <mat-icon>format_align_left</mat-icon>
+          </mat-button-toggle>
+          <mat-button-toggle value="center">
+            <mat-icon>format_align_center</mat-icon>
+          </mat-button-toggle>
+          <mat-button-toggle value="right">
+            <mat-icon>format_align_right</mat-icon>
+          </mat-button-toggle>
+          <mat-button-toggle value="justify">
+            <mat-icon>format_align_justify</mat-icon>
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+  </mat-card>
+  <mat-card class="app-content-component__card">
+    <mat-card-title>
+      Propulsion...
+    </mat-card-title>
+      <mat-slide-toggle
+        class="example-margin"
+        [color]="slColor"
+        [checked]="slChecked"
+        [disabled]="slDisabled">
+      Hyperdrive
+    </mat-slide-toggle>
+  </mat-card>
+  <mat-card class="app-content-component__card" >
+      <mat-card-title>
+          Destination...
+        </mat-card-title>
+      <mat-form-field>
+          <mat-select [(value)]="sDestinationSelected">
+            <mat-option>None</mat-option>
+            <mat-option value="aldebaran">Aldebaran</mat-option>
+            <mat-option value="endor">Endor</mat-option>
+            <mat-option value="hoth">Hoth</mat-option>
+          </mat-select>
+        </mat-form-field>
+  </mat-card>
+  <mat-card class="app-content-component__card" >
+      <mat-card-title>
+          Transport Agency...
+        </mat-card-title>
+      <mat-form-field>
+          <mat-select [(value)]="sTransportSelected">
+            <mat-option>None</mat-option>
+            <mat-option value="empire">Empire</mat-option>
+            <mat-option value="rebellion">Rebellion</mat-option>
+            <mat-option value="smuggler">Smuggler</mat-option>
+            <mat-option value="startours">Star Tours</mat-option>
+          </mat-select>
+        </mat-form-field>
+  </mat-card>
+  <mat-card class="app-content-component__card" >
+      <mat-card-title>
+          Crew...
+        </mat-card-title>
+        <mat-checkbox class="app-content-component__checkbox" [(ngModel)]="crewCalrisianChecked">Lando Calrisian</mat-checkbox>
+        <mat-checkbox class="app-content-component__checkbox" [(ngModel)]="crewChewbaccaChecked">Chewbacca</mat-checkbox>
+        <mat-checkbox class="app-content-component__checkbox" [(ngModel)]="crewKenobiChecked">Obi-wan Kenobi</mat-checkbox>
+        <mat-checkbox class="app-content-component__checkbox" [(ngModel)]="crewOrganaChecked">Leia Organa</mat-checkbox>
+        <mat-checkbox class="app-content-component__checkbox" [(ngModel)]="crewSkywalkerChecked">Luke Skywalker</mat-checkbox>
+        <mat-checkbox class="app-content-component__checkbox" [(ngModel)]="crewSoloChecked">Han Solo</mat-checkbox>
+  </mat-card>
+  <mat-card class="app-content-component__card" >
+      <mat-card-title>
+        Weapon's Compliment...
+      </mat-card-title>
+      <mat-checkbox class="app-content-component__checkbox" [(ngModel)]="weaponsBlasters">Blasters</mat-checkbox>
+      <mat-checkbox class="app-content-component__checkbox" [(ngModel)]="weaponsCannons">Energy Cannons</mat-checkbox>
+      <mat-checkbox class="app-content-component__checkbox" [(ngModel)]="weaponsSabers">Light Sabers</mat-checkbox>
+      <mat-checkbox class="app-content-component__checkbox" [(ngModel)]="weaponsTractorBeam">Tractor Beam</mat-checkbox>
+  </mat-card>
+</div>
