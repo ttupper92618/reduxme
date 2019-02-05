@@ -1,4 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+ 
+import * as fromRoot from '../store/reducers';
+import * as balastControlActions from '../store/actions/balast-control.actions';
+import * as crewActions from '../store/actions/crew.actions';
+import * as destinationActions from '../store/actions/destination.actions';
+import * as transportAgencyActions from '../store/actions/transport-agency.actions';
+import * as weaponsComplimentActions from '../store/actions/weapons-compliment.actions';
 
 @Component({
   selector: 'app-content',
@@ -25,9 +33,14 @@ export class ContentComponent implements OnInit {
   public weaponsSabers = true;
   public weaponsTractorBeam = true;
 
-  constructor() { }
+  constructor(private store: Store<fromRoot.State>) { }
 
   ngOnInit() {
+    this.store.dispatch(new balastControlActions.LoadBalastControls());
+    this.store.dispatch(new crewActions.LoadCrews());
+    this.store.dispatch(new destinationActions.LoadDestinations());
+    this.store.dispatch(new transportAgencyActions.LoadTransportAgencys());
+    this.store.dispatch(new weaponsComplimentActions.LoadWeaponsCompliments());
   }
 
 }
