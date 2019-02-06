@@ -1,14 +1,17 @@
 import { Action } from '@ngrx/store';
 
 export enum DestinationActionTypes {
-  LoadDestinations = '[Destination] Load Destinations',
-  
-  
+  LoadDestination = '[Destination] Load Destinations',
+  SetDestination = '[Destination] Set Destinations'
 }
 
-export class LoadDestinations implements Action {
-  readonly type = DestinationActionTypes.LoadDestinations;
+export class LoadDestination implements Action {
+  readonly type = DestinationActionTypes.LoadDestination;
 }
 
+export class SetDestination implements Action {
+  readonly type = DestinationActionTypes.SetDestination;
+  constructor(public payload: string) {}
+}
 
-export type DestinationActions = LoadDestinations;
+export type DestinationActions = LoadDestination | SetDestination;

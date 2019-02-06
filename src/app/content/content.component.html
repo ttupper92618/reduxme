@@ -3,7 +3,7 @@
       <mat-card-title>
           Balast control...
         </mat-card-title>
-      <mat-button-toggle-group #group="matButtonToggleGroup" [value]="bgValue">
+      <mat-button-toggle-group #group="matButtonToggleGroup" [value]="balastControlState$ | async" (change)="handleBalastControlChange($event)">
           <mat-button-toggle value="left">
             <mat-icon>format_align_left</mat-icon>
           </mat-button-toggle>
@@ -25,8 +25,9 @@
       <mat-slide-toggle
         class="example-margin"
         [color]="slColor"
-        [checked]="slChecked"
-        [disabled]="slDisabled">
+        [checked]="hyperdriveState$ | async"
+        [disabled]="slDisabled"
+        (change)="handlePropulsionChange($event)">
       Hyperdrive
     </mat-slide-toggle>
   </mat-card>
@@ -35,7 +36,9 @@
           Destination...
         </mat-card-title>
       <mat-form-field>
-          <mat-select [(value)]="sDestinationSelected">
+          <mat-select 
+            [value]="destinationState$ | async"
+            (selectionChange)="handleDestinationChange($event)">
             <mat-option>None</mat-option>
             <mat-option value="aldebaran">Aldebaran</mat-option>
             <mat-option value="endor">Endor</mat-option>
@@ -48,7 +51,9 @@
           Transport Agency...
         </mat-card-title>
       <mat-form-field>
-          <mat-select [(value)]="sTransportSelected">
+          <mat-select 
+            [value]="transportAgencyState$ | async"
+            (selectionChange)="handleTransportAgencyChange($event)">
             <mat-option>None</mat-option>
             <mat-option value="empire">Empire</mat-option>
             <mat-option value="rebellion">Rebellion</mat-option>
@@ -61,20 +66,20 @@
       <mat-card-title>
           Crew...
         </mat-card-title>
-        <mat-checkbox class="app-content-component__checkbox" [(ngModel)]="crewCalrisianChecked">Lando Calrisian</mat-checkbox>
-        <mat-checkbox class="app-content-component__checkbox" [(ngModel)]="crewChewbaccaChecked">Chewbacca</mat-checkbox>
-        <mat-checkbox class="app-content-component__checkbox" [(ngModel)]="crewKenobiChecked">Obi-wan Kenobi</mat-checkbox>
-        <mat-checkbox class="app-content-component__checkbox" [(ngModel)]="crewOrganaChecked">Leia Organa</mat-checkbox>
-        <mat-checkbox class="app-content-component__checkbox" [(ngModel)]="crewSkywalkerChecked">Luke Skywalker</mat-checkbox>
-        <mat-checkbox class="app-content-component__checkbox" [(ngModel)]="crewSoloChecked">Han Solo</mat-checkbox>
+        <mat-checkbox class="app-content-component__checkbox" [checked]="(crewState$ | async).calrisianValue">Lando Calrisian</mat-checkbox>
+        <mat-checkbox class="app-content-component__checkbox" [checked]="(crewState$ | async).chewbaccaValue">Chewbacca</mat-checkbox>
+        <mat-checkbox class="app-content-component__checkbox" [checked]="(crewState$ | async).kenobiValue">Obi-wan Kenobi</mat-checkbox>
+        <mat-checkbox class="app-content-component__checkbox" [checked]="(crewState$ | async).organaValue">Leia Organa</mat-checkbox>
+        <mat-checkbox class="app-content-component__checkbox" [checked]="(crewState$ | async).skywalkerValue">Luke Skywalker</mat-checkbox>
+        <mat-checkbox class="app-content-component__checkbox" [checked]="(crewState$ | async).soloValue">Han Solo</mat-checkbox>
   </mat-card>
   <mat-card class="app-content-component__card" >
       <mat-card-title>
         Weapon's Compliment...
       </mat-card-title>
-      <mat-checkbox class="app-content-component__checkbox" [(ngModel)]="weaponsBlasters">Blasters</mat-checkbox>
-      <mat-checkbox class="app-content-component__checkbox" [(ngModel)]="weaponsCannons">Energy Cannons</mat-checkbox>
-      <mat-checkbox class="app-content-component__checkbox" [(ngModel)]="weaponsSabers">Light Sabers</mat-checkbox>
-      <mat-checkbox class="app-content-component__checkbox" [(ngModel)]="weaponsTractorBeam">Tractor Beam</mat-checkbox>
+      <mat-checkbox class="app-content-component__checkbox" [ngModel]="(weaponsComplimentState$ | async).blastersValue">Blasters</mat-checkbox>
+      <mat-checkbox class="app-content-component__checkbox" [ngModel]="(weaponsComplimentState$ | async).cannonsValue">Energy Cannons</mat-checkbox>
+      <mat-checkbox class="app-content-component__checkbox" [ngModel]="(weaponsComplimentState$ | async).sabersValue">Light Sabers</mat-checkbox>
+      <mat-checkbox class="app-content-component__checkbox" [ngModel]="(weaponsComplimentState$ | async).tractorBeamValue">Tractor Beam</mat-checkbox>
   </mat-card>
 </div>

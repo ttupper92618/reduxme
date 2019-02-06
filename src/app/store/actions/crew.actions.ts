@@ -1,14 +1,18 @@
 import { Action } from '@ngrx/store';
+import { CrewState } from '../../content/content.component.models'
 
 export enum CrewActionTypes {
-  LoadCrews = '[Crew] Load Crews',
-  
-  
+  LoadCrew = '[Crew] Load Crew',
+  SetCrew = '[Crew] Set Crew'
 }
 
-export class LoadCrews implements Action {
-  readonly type = CrewActionTypes.LoadCrews;
+export class LoadCrew implements Action {
+  readonly type = CrewActionTypes.LoadCrew;
 }
 
+export class SetCrew implements Action {
+  readonly type = CrewActionTypes.SetCrew;
+  constructor(public payload: CrewState) {}
+}
 
-export type CrewActions = LoadCrews;
+export type CrewActions = LoadCrew | SetCrew;

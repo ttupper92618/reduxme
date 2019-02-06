@@ -1,14 +1,17 @@
 import { Action } from '@ngrx/store';
 
 export enum BalastControlActionTypes {
-  LoadBalastControls = '[BalastControl] Load BalastControls',
-  
-  
+  LoadBalastControl = '[BalastControl] Load BalastControl',
+  SetDestination = '[BalastControl] Set BalastControl' 
 }
 
-export class LoadBalastControls implements Action {
-  readonly type = BalastControlActionTypes.LoadBalastControls;
+export class LoadBalastControl implements Action {
+  readonly type = BalastControlActionTypes.LoadBalastControl;
 }
 
+export class SetBalastControl implements Action {
+  readonly type = BalastControlActionTypes.SetDestination;
+  constructor(public payload: string) {}
+}
 
-export type BalastControlActions = LoadBalastControls;
+export type BalastControlActions = LoadBalastControl | SetBalastControl;

@@ -1,14 +1,19 @@
 import { Action } from '@ngrx/store';
 
+import { WeaponsComplimentState } from '../../content/content.component.models'
+
 export enum WeaponsComplimentActionTypes {
-  LoadWeaponsCompliments = '[WeaponsCompliment] Load WeaponsCompliments',
-  
-  
+  LoadWeaponsCompliment = '[WeaponsCompliment] Load WeaponsCompliment',
+  SetWeaponsCompliment = '[WeaponsCompliment] Set WeaponsCompliment'
 }
 
-export class LoadWeaponsCompliments implements Action {
-  readonly type = WeaponsComplimentActionTypes.LoadWeaponsCompliments;
+export class LoadWeaponsCompliment implements Action {
+  readonly type = WeaponsComplimentActionTypes.LoadWeaponsCompliment;
 }
 
+export class SetWeaponsCompliment implements Action {
+  readonly type = WeaponsComplimentActionTypes.SetWeaponsCompliment;
+  constructor(public payload: WeaponsComplimentState) {}
+}
 
-export type WeaponsComplimentActions = LoadWeaponsCompliments;
+export type WeaponsComplimentActions = LoadWeaponsCompliment | SetWeaponsCompliment;
