@@ -28,12 +28,18 @@ import { reducers, metaReducers } from './store/reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AppEffects } from './store/effects/app.effects';
+import { StateComponent } from './state/state.component';
+import { PurgeComponent } from './purge/purge.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    ContentComponent
+    ContentComponent,
+    StateComponent,
+    PurgeComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
