@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "finanovate": {
+    "reduxme": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/finanovate",
+            "outputPath": "dist/reduxme",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "finanovate:build"
+            "browserTarget": "reduxme:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "finanovate:build:production"
+              "browserTarget": "reduxme:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "finanovate:build"
+            "browserTarget": "reduxme:build"
           }
         },
         "test": {
@@ -107,7 +107,7 @@
         }
       }
     },
-    "finanovate-e2e": {
+    "reduxme-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -116,11 +116,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "finanovate:serve"
+            "devServerTarget": "reduxme:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "finanovate:serve:production"
+              "devServerTarget": "reduxme:serve:production"
             }
           }
         },
@@ -136,7 +136,7 @@
       }
     }
   },
-  "defaultProject": "finanovate",
+  "defaultProject": "reduxme",
   "cli": {
     "defaultCollection": "@ngrx/schematics"
   }
